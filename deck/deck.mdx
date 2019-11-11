@@ -4,10 +4,12 @@ import meme1 from './meme1.jpg'
 import meme2 from './meme2.gif'
 import meme3 from './meme3.gif'
 import trophy from './trophy.jpg'
+import dependabot from './dependabot.png'
+import bestPractices from './best_practices.png'
 
 export const theme = themes.book
 
-# Cypress talk 
+# Why you should use Cypress
 
 November 12, 2019 @ TouchBistro, Toronto 
 
@@ -47,11 +49,11 @@ Jesse Buchanan (@jessebuchananCA)
 ---
 
 
-# Why did we start using Cypress?
+# What drove us to Cypress?
 
 <ul>
   <Appear>
-    <li>Component tests (e.g. `enzyme`) were not giving us enough confidence</li>
+    <h3>Component tests (e.g. `enzyme` shallow rendering) were fragile</h3>
     <li>⏭</li>
   </Appear>
 </ul>
@@ -73,13 +75,31 @@ Jesse Buchanan (@jessebuchananCA)
 
 ---
 
-# Why did we start using Cypress?
+# What drove us to Cypress?
 
 <ul>
-  <li>Component tests (`enzyme`) were not giving us enough confidence</li>
+  <h3>Component tests with `enzyme` shallow rendering are fragile</h3>
   <Appear>
-    <li>Tests would still pass when our app wasn't working</li>
-    <li>None of our tests exercised that our dependencies keep working together as we upgrade</li>
+    <li>Tests would still pass even if the app is broken</li>
+    <li>Tests weren't useful for verifying dependency upgrades</li>
+    <li>⏭</li>
+  </Appear>
+</ul>
+
+
+---
+
+<Image src={dependabot} />
+
+---
+
+# What drove us to Cypress?
+
+<ul>
+  <h3>Component tests with `enzyme` shallow rendering are fragile</h3>
+  <li>Tests would still pass even if the app is broken</li>
+  <li>Tests weren't useful for verifying dependency upgrades</li>
+  <Appear>
     <li>Refactoring meant re-writing most or all of the tests</li>
     <li>⏭</li>
   </Appear>
@@ -87,14 +107,9 @@ Jesse Buchanan (@jessebuchananCA)
 
 ---
 
-# We can't rely on <em>just</em> unit tests.
-
-<Appear><p>⏭</p></Appear>
-
-
----
-
 # Testing pyramid
+
+<li>Mostly unit tests</li>
 
 ---
 
@@ -114,13 +129,22 @@ Jesse Buchanan (@jessebuchananCA)
 
 ---
 
-# Where Cypress fits 
+# Test "like a user" to enable refactoring
 
-<Appear>
-  <li>Writing <strong>end-to-end tests</strong>, to test your frontend, backend, database, and supporting services</li>
-  <li>Writing <strong>integration tests</strong> to thoroughly test your frontend in isolation, by mocking/stubbing dependencies</li>
-  <li>⏭</li>
-</Appear>
+Our mistake was testing <strong>implementation details</strong>.
+
+<ul>
+  <Appear>
+    <li>The internals of React were entirely rewritten between React 15 and React 16</li>
+    <li>They only tested their public APIs - test suite did not have to change</li>
+    <li><p>For a web application, <em>the user interface</em> is the public API</p></li>
+    <li>⏭</li>
+  </Appear>
+</ul>
+
+---
+
+<img src={bestPractices} style={{ height: '100%', width: 'auto' }} />
 
 ---
 
@@ -129,22 +153,74 @@ Jesse Buchanan (@jessebuchananCA)
 <Appear>
   <li>It hides the complexities of async</li>
   <li>You can always* write deterministic, flake-free tests</li>
+  <li><small>(* if you follow the rules)</small></li>
   <li>⏭</li>
 </Appear>
 
 ---
 
-# Cypress has neat features!
+# Cypress has great documentation
+
+<ul>
+  <Appear>
+    <li><a href="https://docs.cypress.io/guides/core-concepts/introduction-to-cypress.html#Cypress-Can-Be-Simple-Sometimes">It's simple (sometimes)</a></li>
+    <li>But in order to guarantee reliability, you need to follow rules</li>
+    <li>You may need to unlearn the way you've tested in other environments</li>
+    <li>Read the docs to learn more!</li>
+    <li>⏭</li>
+  </Appear>
+</ul>
+
+---
+
+# The tests themselves
 
 <Appear>
   <li>🧙‍♂️ Stub out REST API calls with <code>cy.route()</code></li>
-  <li>🏗️ Stub out browser APIs or your own app's APIs with <code>cy.stub()</code></li>
-  <li>🕰 Fast forward time with <code>cy.tick()</code></li>
-  <li>🕰 Write arbitrary tasks in Node with <code>cy.task()</code></li>
+  <li>🏗️ Stub out browser APIs (or your own app's APIs!) with <code>cy.stub()</code></li>
+  <li>🕰 Fast-forward in-app timers with <code>cy.tick()</code></li>
+  <li>⚙️ Write arbitrary tasks in Node with <code>cy.task()</code></li>
+  <li>🕸 Make web requests with <code>cy.request()</code></li>
   <li>⏭</li>
 </Appear>
+
+---
+
+# The test runner
+
+<Appear>
+  <li>⌚️ You can view snapshots, "before"/"after" of each test step</li>
+  <li>🔓 You can access the console, and interact with your app</li>
+  <li>🎥 You can record screenshots and videos of test runs</li>
+  <li>🧾 You can get code coverage metrics</li>
+</Appear>
+
+---
+
+# Demo, again
+
+---
+
+# Demo, again
+
+⏭
+
+---
+
+# Why you (maybe) shouldn't use Cypress
+
+Nothing is perfect. Some areas Cypress is working on:
+
+<ul>
+  <li>No Firefox support - <a href="https://github.com/cypress-io/cypress/issues/1096">GH #1096</a></li>
+  <li>Full network stubbing (fetch support) - <a href="https://github.com/cypress-io/cypress/issues/687">GH #687</a></li>
+  <li><a href="https://docs.cypress.io/guides/guides/web-security.html#External-Navigation">One "superdomain" per test</a></li>
+</ul>
 
 ---
 
 # Thanks!
 
+<p style={{ position: 'absolute', bottom: '0.2vh'}}>
+Jesse Buchanan (@jessebuchananCA)
+</p>
