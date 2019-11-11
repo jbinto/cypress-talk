@@ -1,0 +1,150 @@
+import { Appear, Image, Split, themes } from 'mdx-deck'
+
+import meme1 from './meme1.jpg'
+import meme2 from './meme2.gif'
+import meme3 from './meme3.gif'
+import trophy from './trophy.jpg'
+
+export const theme = themes.book
+
+# Cypress talk 
+
+November 12, 2019 @ TouchBistro, Toronto 
+
+
+<p style={{ position: 'absolute', bottom: '0.2vh'}}>
+Jesse Buchanan (@jessebuchananCA)
+</p>
+
+
+---
+
+# Quick demo
+
+<ul>
+  <li>Let's do the best part first</li>
+  <Appear>
+    <li>Cypress ships an example test suite for a "real world" app</li>
+    <li><code>conduit</code> is a Medium clone, a learning project cloned in over a dozen languages</li>
+    <li>⏭</li>
+  </Appear>
+</ul>
+
+---
+
+# Quick demo
+
+
+<ul>
+  <Appear>
+    <span style={{ fontSize: '100px' }}>⌨ ⏱</span>
+    <li>We'll come back to this soon</li>
+    <li>⏭</li>
+  </Appear>
+</ul>
+
+
+---
+
+
+# Why did we start using Cypress?
+
+<ul>
+  <Appear>
+    <li>Component tests (e.g. `enzyme`) were not giving us enough confidence</li>
+    <li>⏭</li>
+  </Appear>
+</ul>
+
+---
+
+<Image src={meme2} />
+<p style={{ fontSize: '40px', position: 'absolute', top: 0 }}>2 unit tests, 0 integration tests 🤣</p>
+
+---
+
+<Image src={meme1} />
+<p style={{ fontSize: '40px', position: 'absolute', top: 0 }}>2 unit tests, 0 integration tests 🤣</p>
+
+---
+
+<Image src={meme3} />
+<p style={{ fontSize: '40px', position: 'absolute', top: 0 }}>2 unit tests, 0 integration tests 🤣</p>
+
+---
+
+# Why did we start using Cypress?
+
+<ul>
+  <li>Component tests (`enzyme`) were not giving us enough confidence</li>
+  <Appear>
+    <li>Tests would still pass when our app wasn't working</li>
+    <li>None of our tests exercised that our dependencies keep working together as we upgrade</li>
+    <li>Refactoring meant re-writing most or all of the tests</li>
+    <li>⏭</li>
+  </Appear>
+</ul>
+
+---
+
+# We can't rely on <em>just</em> unit tests.
+
+<Appear><p>⏭</p></Appear>
+
+
+---
+
+# Testing pyramid
+
+---
+
+# Testing <strike>pyramid</strike>
+
+---
+
+<Split>
+  <img src={trophy} />
+
+  # Testing trophy
+
+  <Appear>
+    <p>"<a href="https://kentcdodds.com/blog/write-tests">Write tests, not too many, mostly integration</a>" - @kentcdodds</p>
+  </Appear>
+</Split>
+
+---
+
+# Where Cypress fits 
+
+<Appear>
+  <li>Writing <strong>end-to-end tests</strong>, to test your frontend, backend, database, and supporting services</li>
+  <li>Writing <strong>integration tests</strong> to thoroughly test your frontend in isolation, by mocking/stubbing dependencies</li>
+  <li>⏭</li>
+</Appear>
+
+---
+
+# Cypress is designed for reliability
+
+<Appear>
+  <li>It hides the complexities of async</li>
+  <li>You can always* write deterministic, flake-free tests</li>
+  <li>⏭</li>
+</Appear>
+
+---
+
+# Cypress has neat features!
+
+<Appear>
+  <li>🧙‍♂️ Stub out REST API calls with <code>cy.route()</code></li>
+  <li>🏗️ Stub out browser APIs or your own app's APIs with <code>cy.stub()</code></li>
+  <li>🕰 Fast forward time with <code>cy.tick()</code></li>
+  <li>🕰 Write arbitrary tasks in Node with <code>cy.task()</code></li>
+  <li>⏭</li>
+</Appear>
+
+---
+
+# Thanks!
+
