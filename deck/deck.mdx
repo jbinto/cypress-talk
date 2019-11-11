@@ -6,6 +6,7 @@ import meme3 from './meme3.gif'
 import trophy from './trophy.jpg'
 import dependabot from './dependabot.png'
 import bestPractices from './best_practices.png'
+import testInternals from './test_internals.png'
 
 export const theme = themes.book
 
@@ -137,12 +138,29 @@ Our mistake was testing <strong>implementation details</strong>.
 <ul>
   <Appear>
     <li>🚧 The internals of React were entirely rewritten between React 15 and React 16</li>
-    <li>👩‍🔬 They only tested their public APIs
-      <ul>
-        <li>Tests didn't need to be rewritten</li>
-        <li>And they actually verified things still worked</li>
-      </ul>
-    </li>
+    <li>👩‍🔬 They only tested their public APIs</li>
+  </Appear>
+</ul>
+
+---
+
+<img src={testInternals} style={{ height: '100%', width: 'auto' }} />
+
+---
+
+# Test "like a user" to enable refactoring
+
+Our mistake was testing <strong>implementation details</strong>.
+
+<ul>
+  <li>🚧 The internals of React were entirely rewritten between React 15 and React 16</li>
+  <li>👩‍🔬 They only tested their public APIs
+    <ul>
+      <li>Tests didn't need to be rewritten</li>
+      <li>And they actually verified things still worked</li>
+    </ul>
+  </li>
+  <Appear>
     <li>💻For a web application, <em>the user interface</em> is the public API</li>
     <li>⏭</li>
   </Appear>
