@@ -97,10 +97,11 @@ Jesse Buchanan (@jessebuchananCA)
 
 <ul>
   <h3>Component tests with `enzyme` shallow rendering are fragile</h3>
-  <li>Tests would still pass even if the app is broken</li>
-  <li>Tests weren't useful for verifying dependency upgrades</li>
+  <li>💥 Tests would still pass even if the app is broken</li>
+  <li>🗑 Tests weren't useful for verifying dependency upgrades</li>
   <Appear>
-    <li>Refactoring meant re-writing most or all of the tests</li>
+    <li>😰 Refactoring meant re-writing most or all of the tests</li>
+    <li>💰 Which means our tests didn't pay for themselves</li>
     <li>⏭</li>
   </Appear>
 </ul>
@@ -109,7 +110,7 @@ Jesse Buchanan (@jessebuchananCA)
 
 # Testing pyramid
 
-<li>Mostly unit tests</li>
+<li>🔺 Mostly unit tests</li>
 
 ---
 
@@ -120,7 +121,7 @@ Jesse Buchanan (@jessebuchananCA)
 <Split>
   <img src={trophy} />
 
-  # Testing trophy
+  # 🏆 Testing trophy
 
   <Appear>
     <p>"<a href="https://kentcdodds.com/blog/write-tests">Write tests, not too many, mostly integration</a>" - @kentcdodds</p>
@@ -136,8 +137,13 @@ Our mistake was testing <strong>implementation details</strong>.
 <ul>
   <Appear>
     <li>🚧 The internals of React were entirely rewritten between React 15 and React 16</li>
-    <li>👩‍🔬 They only tested their public APIs - test suite did not have to change</li>
-    <li><p>💻For a web application, <em>the user interface</em> is the public API</p></li>
+    <li>👩‍🔬 They only tested their public APIs
+      <ul>
+        <li>Tests didn't need to be rewritten</li>
+        <li>And they actually verified things still worked</li>
+      </ul>
+    </li>
+    <li>💻For a web application, <em>the user interface</em> is the public API</li>
     <li>⏭</li>
   </Appear>
 </ul>
