@@ -8,17 +8,20 @@ import dependabot from './dependabot.png'
 import bestPractices from './best_practices.png'
 import testInternals from './test_internals.png'
 
-export const theme = themes.book
+export const theme = themes.swiss
 
 # Why you should use Cypress
 
 November 12, 2019 @ TouchBistro, Toronto 
 
-
-<p style={{ position: 'absolute', bottom: '0.2vh'}}>
+<p style={{ position: 'absolute', bottom: '0vh'}}>
 Jesse Buchanan (@jessebuchananCA)
 </p>
 
+---
+
+<img src="https://www.cypress.io/static/33498b5f95008093f5f94467c61d20ab/59c46/cypress-logo.webp"/>
+<h3>"Fast, easy and reliable testing for anything that runs in a browser."</h3>
 
 ---
 
@@ -27,15 +30,15 @@ Jesse Buchanan (@jessebuchananCA)
 <ul>
   <li>🎉 Let's do the best part first</li>
   <Appear>
-    <li>📖 Cypress ships an example test suite for a "real world" app</li>
-    <li><code>conduit</code> is a Medium clone, a learning project cloned in over a dozen languages</li>
+    <li>Cypress ships an example test suite for a "real world" app (Medium clone)</li>
+    <li>Let's walk through some neat features and a bit of code</li>
     <li>⏭</li>
   </Appear>
 </ul>
 
 ---
 
-# Quick demo
+<!-- # Quick demo
 
 
 <ul>
@@ -44,17 +47,17 @@ Jesse Buchanan (@jessebuchananCA)
     <li>We'll come back to this soon</li>
     <li>⏭</li>
   </Appear>
-</ul>
+</ul> -->
 
 
----
+<!-- --- -->
 
 
 # What drove us to Cypress?
 
 <ul>
   <Appear>
-    <h3>Component tests (e.g. `enzyme` shallow rendering) were fragile</h3>
+    <h3>React component tests (e.g. <code>enzyme</code>) were fragile</h3>
     <li>⏭</li>
   </Appear>
 </ul>
@@ -79,7 +82,7 @@ Jesse Buchanan (@jessebuchananCA)
 # What drove us to Cypress?
 
 <ul>
-  <h3>Component tests with `enzyme` shallow rendering are fragile</h3>
+  <h3>React component tests (e.g. <code>enzyme</code>) were fragile</h3>
   <Appear>
     <li>💥 Tests would still pass even if the app is broken</li>
     <li>🗑 Tests weren't useful for verifying dependency upgrades</li>
@@ -97,7 +100,7 @@ Jesse Buchanan (@jessebuchananCA)
 # What drove us to Cypress?
 
 <ul>
-  <h3>Component tests with `enzyme` shallow rendering are fragile</h3>
+  <h3>React component tests (e.g. <code>enzyme</code>) were fragile</h3>
   <li>💥 Tests would still pass even if the app is broken</li>
   <li>🗑 Tests weren't useful for verifying dependency upgrades</li>
   <Appear>
@@ -109,7 +112,7 @@ Jesse Buchanan (@jessebuchananCA)
 
 ---
 
-# Testing pyramid
+<!-- # Testing pyramid
 
 <li>🔺 Mostly unit tests</li>
 
@@ -129,15 +132,18 @@ Jesse Buchanan (@jessebuchananCA)
   </Appear>
 </Split>
 
----
+--- -->
 
 # Test "like a user" to enable refactoring
 
 Our mistake was testing <strong>implementation details</strong>.
 
+
+
 <ul>
   <Appear>
-    <li>🚧 The internals of React were entirely rewritten between React 15 and React 16</li>
+    <center>⚛️</center>
+    <li>🚧 React's internals were entirely rewritten between v15 and v16</li> 
     <li>👩‍🔬 They only tested their public APIs</li>
   </Appear>
 </ul>
@@ -153,57 +159,57 @@ Our mistake was testing <strong>implementation details</strong>.
 Our mistake was testing <strong>implementation details</strong>.
 
 <ul>
-  <li>🚧 The internals of React were entirely rewritten between React 15 and React 16</li>
-  <li>👩‍🔬 They only tested their public APIs
-    <ul>
-      <li>Tests didn't need to be rewritten</li>
-      <li>And they actually verified things still worked</li>
-    </ul>
-  </li>
-  <Appear>
-    <li>💻 For a web application, <em>the user interface</em> is the public API</li>
-    <li>⏭</li>
-  </Appear>
+  <li>🚧 React's internals were entirely rewritten between v15 and v16</li>
+  <li>👩‍🔬 They only tested their public APIs</li>
 </ul>
+
+<ul>
+  <li>Tests didn't need to be rewritten</li>
+  <li>And they actually verified things still worked</li>
+  <li>⏭</li>
+</ul>
+
+---
+
+
+<h3 style={{ 'height': '100%'}}>💻 For a web application, <em>the user interface</em> is the public API</h3>
 
 ---
 
 <img src={bestPractices} style={{ height: '100%', width: 'auto' }} />
 
----
+--- 
 
 # Cypress is designed for reliability
 
 <Appear>
-  <li>🕴 It hides the complexities of async</li>
-  <li>🚫 You can always* write deterministic, flake-free tests</li>
-  <li>👨‍⚖️ (* if you follow the rules)</li>
+  <li>✅ It helps you avoid timing bugs with <em>retry-ability</em></li>
+  <li>🚫 You can always* write deterministic, flake-free tests...</li>
+  <li>⏳ ...and you never* have to write manual "wait for 1000ms"</li>
+  <li>👨‍⚖️ ...if you follow the rules. Don't worry, Cypress has great documentation!</li>
   <li>⏭</li>
 </Appear>
 
 ---
 
-# Cypress has great documentation
+# Tradeoffs for reliability
 
-<ul>
-  <Appear>
-    <li>🔤 <a href="https://docs.cypress.io/guides/core-concepts/introduction-to-cypress.html#Cypress-Can-Be-Simple-Sometimes">It's simple (sometimes)</a></li>
-    <li>👮‍♂️  But in order to guarantee reliability, you need to follow rules</li>
-    <li>👨‍🎓 You may need to unlearn the way you've tested in other environments</li>
-    <li>📚 Read the docs to learn more!</li>
-    <li>⏭</li>
-  </Appear>
-</ul>
+<Appear>
+  <li>It's JavaScript, but not like you're used to</li>
+  <li>You can't write <a href="https://docs.cypress.io/guides/core-concepts/conditional-testing.html">conditional tests</a>: no branching or logic allowed</li>
+  <li>But you have options. Did I mention Cypress has great documentation?</li>
+  <li>⏭</li>
+</Appear>
 
 ---
 
 # The tests themselves
 
 <Appear>
-  <li>🧙‍♂️ Stub out REST API calls with <code>cy.route()</code></li>
+  <li>🧙‍♂️ Stub out REST API calls with <a href="https://docs.cypress.io/api/commands/route.html#Making-multiple-requests-to-the-same-route"><code>cy.route()</code></a></li>
   <li>🏗️ Stub out browser APIs (or your own app's APIs!) with <code>cy.stub()</code></li>
   <li>🕰 Fast-forward in-app timers with <code>cy.tick()</code></li>
-  <li>⚙️ Write arbitrary tasks in Node with <code>cy.task()</code></li>
+  <li>⚙️  Call <a href="https://github.com/cypress-io/cypress-example-realworld/blob/e3d4a12437851a40770ddbc90fbed65a3e7ca9ba/cypress/plugins/index.js#L13">arbitrary tasks</a> in Node with <code>cy.task()</code></li>
   <li>🕸 Make web requests with <code>cy.request()</code></li>
   <li>⏭</li>
 </Appear>
@@ -219,7 +225,7 @@ Our mistake was testing <strong>implementation details</strong>.
   <li>🧾 You can get code coverage metrics</li>
 </Appear>
 
----
+<!-- ---
 
 # Demo, again
 
@@ -227,7 +233,7 @@ Our mistake was testing <strong>implementation details</strong>.
 
 # Demo, again
 
-⏭
+⏭ -->
 
 ---
 
@@ -237,13 +243,23 @@ Nothing is perfect. Some areas Cypress is working on:
 
 <ul>
   <li>No Firefox support - <a href="https://github.com/cypress-io/cypress/issues/1096">GH #1096</a></li>
-  <li>Full network stubbing (fetch support) - <a href="https://github.com/cypress-io/cypress/issues/687">GH #687</a></li>
-  <li><a href="https://docs.cypress.io/guides/guides/web-security.html#External-Navigation">One "superdomain" per test</a></li>
+  <li>Full network stubbing (fetch support) - <a href="https://github.com/cypress-io/cypress/issues/687">GH #687</a>, workarounds</li>
+  <li><a href="https://docs.cypress.io/guides/guides/web-security.html#External-Navigation">One "superdomain" per test</a>, workarounds</li>
+</ul>
+
+---
+
+# Read the docs!
+
+<ul>
+  <li>Some of the best technical writing I've encountered</li>
 </ul>
 
 ---
 
 # Thanks!
+
+<h2>Slides: <a style={{ 'textDecoration': 'none' }} href="http://why-cypress.netlify.com/">http://why-cypress.netlify.com/</a></h2>
 
 <p style={{ position: 'absolute', bottom: '0.2vh'}}>
 Jesse Buchanan (@jessebuchananCA)
